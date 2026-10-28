@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محل بعليص للحدايد والبوية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* Navbar */
+        nav {
+            background-color: #991b1b;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #ffffff;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        nav ul li a {
+            color: #fecaca;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        nav ul li a:hover {
+            color: #ffffff;
+        }
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+            color: #fff;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-weight: 900;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #fecaca;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+        .main-cta {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .main-cta:hover {
+            background-color: #20ba5a;
+            transform: translateY(-2px);
+        }
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1e293b;
+            border-right: 6px solid #dc2626;
+            padding-right: 12px;
+        }
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
+            border-top: 5px solid #dc2626;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(220, 38, 38, 0.1);
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.5rem;
+        }
+        .items-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            color: #475569;
+            font-size: 0.95rem;
+            max-height: 220px;
+            overflow-y: auto;
+            padding-left: 5px;
+        }
+        .items-list li {
+            padding: 4px 0;
+            border-bottom: 1px dashed #f1f5f9;
+        }
+        .whatsapp-btn {
+            display: block;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+            text-align: center;
+        }
+        .whatsapp-btn:hover {
+            background-color: #20ba5a;
+        }
+        /* Info Section */
+        .info-section {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-top: 3rem;
+            border: 1px solid #e2e8f0;
+        }
+        .info-section h3 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .info-section p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* WhatsApp floating icon */
+        .wa-float {
+            position: fixed;
+            bottom: 22px;
+            left: 22px;
+            width: 62px;
+            height: 62px;
+            background: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+            z-index: 2000;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .wa-float svg { width: 36px; height: 36px; }
+        .wa-float:hover { background: #20ba5a; transform: scale(1.08); }
+        .wa-float::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid #25d366;
+            animation: wa-pulse 2s infinite;
+        }
+        @keyframes wa-pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+        /* Two numbers under the contact button */
+        .wa-numbers {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+        .wa-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            color: #166534;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .wa-number:hover { background: #dcfce7; transform: translateY(-2px); }
+        .wa-number svg { width: 24px; height: 24px; color: #25d366; }
+        .wa-name { font-weight: 700; }
+        .wa-number span { direction: ltr; unicode-bidi: embed; }
+        .shop-info {
+            margin-top: 1.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .work-days {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 1.1rem;
+        }
+        .work-days small {
+            display: block;
+            color: #991b1b;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .shop-address {
+            font-weight: 600;
+            color: #334155;
+            font-size: 1.05rem;
+        }
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #dc2626;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .map-btn:hover { background: #b91c1c; transform: translateY(-2px); }
+        .map-btn svg { width: 22px; height: 22px; }
+        /* قائمة أسماء الأصناف */
+        .names-section { margin-top: 3rem; }
+        .names-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            align-items: start;
+        }
+        .names-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .names-card h3 {
+            margin: 0 0 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid #dc2626;
+            color: #1e293b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        .names-count {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #991b1b;
+            background: #fee2e2;
+            padding: 2px 10px;
+            border-radius: 50px;
+        }
+        .names-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .names-list li {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+        /* بحث وفلترة الأصناف */
+        .names-tools {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+        .search-box { position: relative; }
+        .search-box input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0.9rem 3rem 0.9rem 1rem;
+            font-size: 1.05rem;
+            font-family: inherit;
+            border: 2px solid #cbd5e1;
+            border-radius: 50px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .search-box input:focus {
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220,38,38,0.15);
+        }
+        .search-box .search-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            color: #94a3b8;
+            pointer-events: none;
+        }
+        .search-box .clear-btn {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: #e2e8f0;
+            color: #475569;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1;
+            display: none;
+        }
+        .brand-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        .brand-chip {
+            border: 1px solid #cbd5e1;
+            background: #f8fafc;
+            color: #334155;
+            padding: 6px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .brand-chip:hover { border-color: #dc2626; }
+        .brand-chip.active {
+            background: #dc2626;
+            border-color: #dc2626;
+            color: #fff;
+        }
+        .brand-chip small { opacity: 0.75; margin-right: 4px; }
+        .search-status {
+            margin-top: 0.9rem;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        .no-results {
+            display: none;
+            text-align: center;
+            background: #fff;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 2rem 1rem;
+            color: #334155;
+        }
+        .no-results a {
+            display: inline-block;
+            margin-top: 0.8rem;
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+        .names-list li { padding: 0; }
+        .names-list li a {
+            display: block;
+            padding: 6px 12px;
+            color: inherit;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .names-list li:hover {
+            background: #f0fdf4;
+            border-color: #86efac;
+        }
+        .names-list li:hover a { color: #166534; }
+        .names-card.hidden, .names-list li.hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- القائمة العلوية -->
+    <nav>
+        <h2>بعليص للحدايد والبوية</h2>
+        <ul>
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#products">أقسام المنتجات</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- الواجهة الرئيسية -->
+    <header>
+        <h1>محل بعليص للحدايد والبوية</h1>
+        <p>مكُن ورشتك وبيتك بأجود أصناف البويات والدهانات والورنيشات والمعجون (باكين، GLC، سيبا، المهندس، بروتال) وأفضل أسعار الحدايد.</p>
+        <a href="https://wa.me/201000000000?text=السلام%20عليكم،%20حابب%20أستفسر%20عن%20الأصناف%20والأسعار" class="main-cta" target="_blank">تواصل معنا عبر واتساب الآن</a>
+    </header>
+
+    <!-- الأقسام والأصناف المفصلة -->
+    <div class="container" id="products">
+        <!-- قائمة أسماء الأصناف حسب الشركة -->
+        <div class="names-section" id="brands-list">
+            <h2 class="section-title">أصناف الشركات</h2>
+            <div class="names-tools">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+                    <input type="search" id="itemSearch" placeholder="ابحث عن صنف... (مثلاً: سيلر، لاكيه، معجون، ثنر)" autocomplete="off" aria-label="بحث في الأصناف">
+                    <button type="button" class="clear-btn" id="clearSearch" aria-label="مسح البحث">×</button>
+                </div>
+                <div class="brand-filters" id="brandFilters"></div>
+                <div class="search-status" id="searchStatus"></div>
+            </div>
+            <div class="no-results" id="noResults">
+                <div>مفيش نتائج للبحث ده 🤔</div>
+                <div>ممكن الصنف متوفر برضو، اسألنا عليه على واتساب</div>
+                <a id="noResultsWa" href="#" target="_blank" rel="noopener">اسأل عن الصنف على واتساب</a>
+            </div>
+            <div class="names-grid">
+                <div class="names-card">
+                    <h3>أصناف بروتال <span class="names-count">47 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>ماكسي سيل 1500</li>
+                    <li>ماكسي سيل 1000</li>
+                    <li>سيلر 121</li>
+                    <li>معجون بروتال 510</li>
+                    <li>ماكسي فليكس 700</li>
+                    <li>بروتالوكس نصف لامع 9000</li>
+                    <li>بروتالوكس سيلك 8500</li>
+                    <li>بروتالوكس فلات 8000</li>
+                    <li>بروتالوكس تون جارد</li>
+                    <li>بروتال إكسترا 7000</li>
+                    <li>بروتال إكسترا 7000 (ألوان جاهزة)</li>
+                    <li>بروتال برتقالي</li>
+                    <li>سوبر سكاي تون 400</li>
+                    <li>بروتال أساسي</li>
+                    <li>تعمير 306</li>
+                    <li>جرافياتو بروتال</li>
+                    <li>جرانول خشن بروتال</li>
+                    <li>جرانول ناعم بروتال</li>
+                    <li>جرانول خشن جي إس كي</li>
+                    <li>جرافياتو كومبيت</li>
+                    <li>جرانول خشن كومبيت</li>
+                    <li>كومبليتوب</li>
+                    <li>بروماستر</li>
+                    <li>فانتازيا 5000</li>
+                    <li>فانتازيا 7000</li>
+                    <li>بروماكس</li>
+                    <li>فانتازيا 420</li>
+                    <li>فانتازيا 450 نصف لامع</li>
+                    <li>فانتازيا 450 مط</li>
+                    <li>بروتال 1620</li>
+                    <li>بروتال 1580</li>
+                    <li>بروتال أندركوت</li>
+                    <li>راستون</li>
+                    <li>بروتاسيل</li>
+                    <li>ريتشوود سيلر نترو 6320</li>
+                    <li>بروتال بوند</li>
+                    <li>بروتك</li>
+                    <li>مركزات يونيفرسال</li>
+                    <li>ماكسي كلر</li>
+                    <li>مركزات ألوان مستحلبة</li>
+                    <li>بروتاسايد</li>
+                    <li>ترافيكو</li>
+                    <li>كوبون فلير</li>
+                    <li>كوبون ورنيش</li>
+                    <li>كوبون كي اس 16</li>
+                    <li>مصلب كي اس 16</li>
+                    <li>مذيب كي اس 16</li>
+                    </ul>
+                </div>
+                <div class="names-card">
+                    <h3>أصناف GLC <span class="names-count">48 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>ستورم شيلد بنيتريتنج سيلر</li>
+                    <li>سيلر جيل نيل 290</li>
+                    <li>سيلر جيل نيل 29</li>
+                    <li>المقاوم 0017</li>
+                    <li>ستارت سيلر مائي</li>
+                    <li>ستورم شيلد بريميوم فيلر</li>
+                    <li>معجون أكريليك 900</li>
+                    <li>معجون تاكت</li>
+                    <li>معجون داي-تون 100</li>
+                    <li>معجون زيتي (داي-تون 111)</li>
+                    <li>معجون فل تايم</li>
+                    <li>داي-ستون 7070</li>
+                    <li>داي-ستون 7070 ألوان جاهزة</li>
+                    <li>سوبر داي-تون 3030</li>
+                    <li>باي-تون</li>
+                    <li>داي-تون بلس 2020</li>
+                    <li>برما ستار 1010</li>
+                    <li>برماكول 001</li>
+                    <li>ستارت بلاستيك مط</li>
+                    <li>چلتكس 15000</li>
+                    <li>چلتكس 20000</li>
+                    <li>چلتكس 25000</li>
+                    <li>زيجزاج 303</li>
+                    <li>ستارت ميتاليك أساس مائي</li>
+                    <li>كومبليكو 27</li>
+                    <li>ورنيش بيور 1901</li>
+                    <li>سي سي (ملونات يونيفرسال)</li>
+                    <li>كوش برايمر سينثيتيك 150</li>
+                    <li>فرست كوت</li>
+                    <li>داي-تون مط 200 أبيض</li>
+                    <li>داي-تون مط 200 ألوان</li>
+                    <li>لؤلؤ</li>
+                    <li>سوبر لاك أبيض 786</li>
+                    <li>سوبر لاك ألوان</li>
+                    <li>سوبر لاك 700 فضي</li>
+                    <li>سوبر لاك 800 ذهبي</li>
+                    <li>سوبر لاك أبيض 500</li>
+                    <li>ستارت لاكيه أبيض</li>
+                    <li>ستارت لاكيه ألوان</li>
+                    <li>ورنيش زجاجي 901</li>
+                    <li>ورنيش مط 1001</li>
+                    <li>ورنيش ستاندر 690</li>
+                    <li>صبغة أخشاب جي.بي.دبليو</li>
+                    <li>بولي بوند</li>
+                    <li>جلس بوند 465</li>
+                    <li>لاصق رخام 5000</li>
+                    <li>بايلوت لاين توب 501</li>
+                    <li>معجون أيكون</li>
+                    </ul>
+                </div>
+                <div class="names-card">
+                    <h3>أصناف باكين <span class="names-count">39 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>سيلر برووف</li>
+                    <li>كويك سيلر</li>
+                    <li>معجون 8800</li>
+                    <li>معجون هارموني</li>
+                    <li>كابيتال مط</li>
+                    <li>سوبر ديروتون 777</li>
+                    <li>ديربي</li>
+                    <li>ديروكوت 666</li>
+                    <li>طيبة 510</li>
+                    <li>كابيتال SG</li>
+                    <li>إكستريور 880</li>
+                    <li>باكين 888</li>
+                    <li>باكين 808</li>
+                    <li>اكوا جليز</li>
+                    <li>برايمر سينتتك 4040</li>
+                    <li>برايمر 48</li>
+                    <li>برايمر 1000</li>
+                    <li>سانيتون</li>
+                    <li>سانيتون نصف لامع</li>
+                    <li>باكيتون</li>
+                    <li>سينتال</li>
+                    <li>سفير</li>
+                    <li>ارتكس</li>
+                    <li>لايت</li>
+                    <li>انتى فاولنج (أزرق / أحمر)</li>
+                    <li>سيلر أخشاب 500</li>
+                    <li>ورنيش فنار</li>
+                    <li>ورنيش فلوت</li>
+                    <li>ورنيش فيو</li>
+                    <li>ورنيش جلاس 300</li>
+                    <li>ورنيش نترو ربع لامع 230</li>
+                    <li>ورنيش نترو لامع L210</li>
+                    <li>ورنيش نترو ستار مط ZERO</li>
+                    <li>فيلر سريع 301</li>
+                    <li>دوكو لامع 320</li>
+                    <li>دوكو مط 320 MATT</li>
+                    <li>زيت شمس</li>
+                    <li>بوية مرور 11024/1</li>
+                    <li>بوية بلدورة 15132</li>
+                    </ul>
+                </div>
+                <div class="names-card">
+                    <h3>أصناف سكيب <span class="names-count">42 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>معجون الأونوشيلد</li>
+                    <li>معجون أكري بتي بلس</li>
+                    <li>معجون البريمو هيرو</li>
+                    <li>معجون سيمنتو</li>
+                    <li>معجون كراك فيلر</li>
+                    <li>ديكورا سيلر</li>
+                    <li>سعادة سيلر</li>
+                    <li>ديكورا خارجي</li>
+                    <li>روستيك ناعم أبيض</li>
+                    <li>روستيك خشن أبيض</li>
+                    <li>جرافيستون خشن أبيض</li>
+                    <li>جرافيستون ناعم أبيض</li>
+                    <li>أكريكوت اتش دي مط</li>
+                    <li>أكريكوت إجشل أبيض</li>
+                    <li>أكريكوت سيلك ناعم أبيض</li>
+                    <li>أكريكوت هاي جلوس أبيض</li>
+                    <li>أكريكوت أتش دي مط ألوان جاهزة</li>
+                    <li>ديكورا هيرو بلاستيك داخلي</li>
+                    <li>بلاستيك سعادة أبيض</li>
+                    <li>رويال لامع أبيض</li>
+                    <li>رويال مط أبيض</li>
+                    <li>أكريكوت 3 في 1 مط أبيض</li>
+                    <li>أكريكوت 3 في 1 لامع أبيض</li>
+                    <li>أكريكوت 3 في 1 لامع ألوان</li>
+                    <li>أكريكوت 3 في 1 لامع ألوان (فضي)</li>
+                    <li>أكريكوت 3 في 1 لامع ألوان (ذهبي)</li>
+                    <li>ديكورا هيرو لامع أبيض</li>
+                    <li>ديكورا هيرو لامع ألوان</li>
+                    <li>ديكورا هيرو مط أبيض</li>
+                    <li>ديكورا هيرو مط ألوان</li>
+                    <li>ديكورا ستيل برايمر</li>
+                    <li>ملونات يونيفرسال</li>
+                    <li>سوبر توب كوت لامع</li>
+                    <li>توب كوت لامع</li>
+                    <li>توب كوت مط</li>
+                    <li>سبوت 501 ورنيش لامع</li>
+                    <li>تاتش وود ورنيش بولي يوريثان لامع 515</li>
+                    <li>تاتش وود ورنيش بولي يوريثان نصف مط 511</li>
+                    <li>تاتش وود ورنيش بولي يوريثان مط 510</li>
+                    <li>تاتش وود صبغة أخشاب</li>
+                    <li>وود باتي معجون أخشاب</li>
+                    <li>وود بوند (غراء أخشاب)</li>
+                    </ul>
+                </div>
+                <div class="names-card">
+                    <h3>أصناف سايبس وساي تك <span class="names-count">49 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>لاتكس سيلر 1800</li>
+                    <li>معجون لاتكس باتي</li>
+                    <li>معجون هاي كراكس</li>
+                    <li>يوني مكس</li>
+                    <li>S7</li>
+                    <li>S70</li>
+                    <li>ساي تون 700</li>
+                    <li>ساي تون 700 أسود</li>
+                    <li>ساي تون 710</li>
+                    <li>ساي تون 800</li>
+                    <li>ساي تون سيلك 700</li>
+                    <li>بوند 2000</li>
+                    <li>بوند 5000</li>
+                    <li>ديوراكريل 7000</li>
+                    <li>ساي ستون</li>
+                    <li>ساي تكس</li>
+                    <li>أكري ستار</li>
+                    <li>ساي تك XTR باتي</li>
+                    <li>ساي تك سيلر مائي XTR S1</li>
+                    <li>ساي تك سيلر XTR S100</li>
+                    <li>ساي تك XTR رووف</li>
+                    <li>سايبس سبيريت</li>
+                    <li>هاي مط 101</li>
+                    <li>ساي جلوس 905</li>
+                    <li>ساي جلوس ذهبي</li>
+                    <li>ساي جلوس فضي</li>
+                    <li>ساي جلوس ألومنيوم</li>
+                    <li>سيليكت</li>
+                    <li>دوكو أبيض وألوان</li>
+                    <li>سايبس برايمر</li>
+                    <li>دهان مرور (أبيض / أصفر)</li>
+                    <li>بردورة (أبيض / ألوان)</li>
+                    <li>ساي وود 223</li>
+                    <li>ساي وود 225</li>
+                    <li>ألترا كلير</li>
+                    <li>ڤارنو</li>
+                    <li>سيلر بولي يوريثان 2:1 شفاف 61</li>
+                    <li>مصلب سيلر بولي يوريثان 2:1 شفاف</li>
+                    <li>ورنيش بولي يوريثان لامع 2:1</li>
+                    <li>مصلب ورنيش بولي يوريثان لامع 2:1</li>
+                    <li>ورنيش بولي يوريثان مط 2:1</li>
+                    <li>مصلب ورنيش بولي يوريثان مط 2:1</li>
+                    <li>ثنر بولي يوريثان</li>
+                    <li>سيلر نيترو سوبر HV</li>
+                    <li>سيلر نيترو LV</li>
+                    <li>ورنيش نيترو لامع</li>
+                    <li>ورنيش نيترو مط</li>
+                    <li>صبغة مذيب</li>
+                    <li>صبغة أخشاب ثنر وماء</li>
+                    </ul>
+                </div>
+                <div class="names-card">
+                    <h3>أصناف كابسي (دهانات إنشائية) <span class="names-count">39 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>بلاستيك لامع بريما (كابسي 710)</li>
+                    <li>بلاستيك نصف لامع - كابسي سيلك (720)</li>
+                    <li>بلاستيك ربع لامع - كابسي إستايلش (725)</li>
+                    <li>بلاستيك مط خارجي (728)</li>
+                    <li>بلاستيك مط ممتاز - كابسي توب (730)</li>
+                    <li>بلاستيك إليجنت مط عالي الجودة (555)</li>
+                    <li>بلاستيك مط (733)</li>
+                    <li>بلاستيك مط - الكينج (735)</li>
+                    <li>بلاستيك مط - سوبر كينج (736)</li>
+                    <li>بلاستيك مط اقتصادي (740)</li>
+                    <li>بلاستيك X1</li>
+                    <li>كومبليكو ناعم (7010)</li>
+                    <li>كومبليكو خشن (7020)</li>
+                    <li>كومبليكو تكس (7025)</li>
+                    <li>جرافياتو (7030)</li>
+                    <li>معجون بلاستيك خارجي للمباني (749)</li>
+                    <li>معجون بلاستيك أكريليكو داخلي وخارجي (749)</li>
+                    <li>معجون بلاستيك داخلي للحوائط (750)</li>
+                    <li>معجون بلاستيك إليجنت داخلي للحوائط (545)</li>
+                    <li>معجون شروخ (790)</li>
+                    <li>سيلر لتجهيز ملمس الحوائط (751)</li>
+                    <li>سيلر خارجي لتجهيز ملمس الحوائط (756)</li>
+                    <li>سيلر حراري - بنتريتنج سيلر (753)</li>
+                    <li>ورنيش خارجي للمباني (752)</li>
+                    <li>ملونات يونيفرسال (UC)</li>
+                    <li>سبونج (788)</li>
+                    <li>أكوا إسبونج (799)</li>
+                    <li>أكوا بيرل برونزي / ذهبي (785)</li>
+                    <li>لاكيه مط أبيض (766)</li>
+                    <li>لاكيه مط هاتريك (766)</li>
+                    <li>لاكيه مط إلجانت (444)</li>
+                    <li>لاكيه لامع هاتريك (777)</li>
+                    <li>لاكيه لامع أبيض وألوان (777)</li>
+                    <li>لاكيه ذهبي (777 Gold)</li>
+                    <li>لاكيه فضي (777 Silver)</li>
+                    <li>لاكيه لامع إليجنت ألوان (333)</li>
+                    <li>لاصق رخام كابسي ماربل (4000)</li>
+                    <li>لاصق رخام سائل كابسي ماربل (4100)</li>
+                    <li>برايمر أحمر / رصاصي (835)</li>
+                    </ul>
+                </div>
+                <div class="names-card">
+                    <h3>أصناف لاتيكو <span class="names-count">21 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>بلاستيك نصف لامع (767)</li>
+                    <li>بلاستيك لاتيكو (737)</li>
+                    <li>بلاستيك مط وادي توشكا (9000)</li>
+                    <li>معجون بلاستيك لاتيكو داخلي (727)</li>
+                    <li>سيلر مائي لاتيكو (717)</li>
+                    <li>ورنيش مائي لاتيكو (757)</li>
+                    <li>لاكيه لامع أبيض وألوان (700)</li>
+                    <li>لاكيه مط أبيض وعسلي (711)</li>
+                    <li>معجون حديد لاتيكو (5200)</li>
+                    <li>فيلر سريع لاتيكو (5300)</li>
+                    <li>فيلر بطئ لاتيكو (5450)</li>
+                    <li>مصلب فيلر بطئ لاتيكو (5455)</li>
+                    <li>ثنر أكريليك لاتيكو (5550)</li>
+                    <li>مصلب أكريليك لاتيكو (5600)</li>
+                    <li>ورنيش لاتيكو (5900)</li>
+                    <li>بوية أكريليك سادة لاتيكو (5700)</li>
+                    <li>ألوان السيستم لاتيكو (5700)</li>
+                    <li>ميتاليك ألومنيوم لاتيكو (5770)</li>
+                    <li>ميتاليك بيرل لاتيكو (5770)</li>
+                    <li>ميتاليك ألوان لاتيكو (5770)</li>
+                    <li>ميتاليك EXELARIC لاتيكو (5770)</li>
+                    </ul>
+                </div>
+                <div class="names-card">
+                    <h3>أصناف ريفينكس <span class="names-count">8 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>لاصق رخام ريفينكس (RD180)</li>
+                    <li>معجون حديد ريفينكس (RC22)</li>
+                    <li>فيلر بطئ ريفينكس (RC33)</li>
+                    <li>مصلب فيلر بطئ ريفينكس (RC33H)</li>
+                    <li>فيلر سريع ألوان وأبيض ريفينكس (RC30)</li>
+                    <li>ثنر أكريليك ريفينكس (RC45)</li>
+                    <li>مصلب بطئ ريفينكس (RC56)</li>
+                    <li>ورنيش زجاجي ريفينكس (RC80)</li>
+                    </ul>
+                </div>
+                <div class="names-card">
+                    <h3>أصناف المهندس <span class="names-count">46 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>ثنر بولي ريثان</li>
+                    <li>ثنر دبابتين</li>
+                    <li>ثنر دبابة</li>
+                    <li>ثنر صاروخ</li>
+                    <li>ثنر صاروخين</li>
+                    <li>ثنر استرونجر</li>
+                    <li>ثنر بولي استر</li>
+                    <li>ثنر نيرو</li>
+                    <li>ثنر سوبر نيرو</li>
+                    <li>ثنر قائد</li>
+                    <li>ثنر بروكس شفاف</li>
+                    <li>نفض المهندس</li>
+                    <li>نفض شفاف</li>
+                    <li>سيلر نيترو سليلوز المهندس</li>
+                    <li>سيلر نيترو سليلوز الدبابة</li>
+                    <li>سيلر بولي استر شفاف المهندس</li>
+                    <li>سيلر بولي استر أبيض المهندس</li>
+                    <li>ورنيش نيترو لامع</li>
+                    <li>ورنيش نيترو مط (زيرو / 10% / 25% / 45%)</li>
+                    <li>ورنيش لاكر</li>
+                    <li>ورنيش سريع المهندس</li>
+                    <li>ورنيش سنتيتك</li>
+                    <li>صبغة أخشاب فيرني</li>
+                    <li>سيلر بولي يوريثان (بالمصلب)</li>
+                    <li>ورنيش بولي يوريثان لامع ومط (بالمصلب)</li>
+                    <li>ورنيش بولي يوريثان أبيض وأسود لامع ومط (بالمصلب)</li>
+                    <li>ورنيش زجاجي أكريليك أخشاب 8800 (بالمصلب H50)</li>
+                    <li>ورنيش دهان أكريليك أخشاب أبيض لامع 8800 (بالمصلب H40)</li>
+                    <li>سيرفيسر</li>
+                    <li>معجون ستوك المهندس</li>
+                    <li>فيلر K1</li>
+                    <li>فيلر K2</li>
+                    <li>معجون فيبر</li>
+                    <li>معجون دوكو مستيكه</li>
+                    <li>ثنر K2 المهندس</li>
+                    <li>دوكو QM أبيض مط</li>
+                    <li>دوكو QM أبيض لامع 7001</li>
+                    <li>دوكو QM ألوان</li>
+                    <li>دوكو QM أسود لامع / مط 1000</li>
+                    <li>دوكو QM لؤلؤي</li>
+                    <li>دوكو QM جولد</li>
+                    <li>ملونات يونيفرسال المهندس</li>
+                    <li>لاصق رخام Marble</li>
+                    <li>بوليش كريم PM50</li>
+                    <li>رابنج كمبوند RM50</li>
+                    <li>لمعة ربنج كومباوند RM-300</li>
+                    </ul>
+                </div>
+                <div class="names-card">
+                    <h3>أصناف كاترون <span class="names-count">21 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>سيلر نيترو سليلوز كاترون</li>
+                    <li>سيلر بولي استر شفاف كاترون</li>
+                    <li>سيلر بولي استر أبيض كاترون</li>
+                    <li>ورنيش نيترو لامع كاترون</li>
+                    <li>ورنيش نترو مط كاترون</li>
+                    <li>ورنيش سنتيتك كاترون</li>
+                    <li>سيرفيسر كاترون</li>
+                    <li>ورنيش سريع كاترون</li>
+                    <li>سيلر بولي يوريثان كاترون (بالمصلب)</li>
+                    <li>ورنيش بولي يوريثان لامع كاترون (بالمصلب)</li>
+                    <li>ورنيش بولي يوريثان أبيض لامع كاترون (بالمصلب)</li>
+                    <li>ورنيش زجاجي أكريليك أخشاب كاترون 7700 (بالمصلب H70)</li>
+                    <li>معجون ستوك كاترون</li>
+                    <li>فيلر كاترون</li>
+                    <li>ثنر K2 كاترون</li>
+                    <li>دوكو كاترون (أبيض لامع / مط)</li>
+                    <li>دوكو كاترون أسود لامع ومط 1000</li>
+                    <li>دوكو كاترون لامع (ألوان)</li>
+                    <li>دوكو كاترون ميتالك</li>
+                    <li>دوكو كاترون ذهبي (M390)</li>
+                    <li>لاصق رخام كاترون</li>
+                    </ul>
+                </div>
+                <div class="names-card">
+                    <h3>أصناف ZO <span class="names-count">5 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>سيلر نيترو سليلوز ZO</li>
+                    <li>سيلر بولي استر شفاف ZO</li>
+                    <li>سيلر بولي استر أبيض ZO</li>
+                    <li>فيلر ZO</li>
+                    <li>بطانة دوكو ZO</li>
+                    </ul>
+                </div>
+                <div class="names-card">
+                    <h3>أصناف كابسي (دهانات السيارات) <span class="names-count">64 صنف</span></h3>
+                    <ul class="names-list">
+                    <li>مزيل (003)</li>
+                    <li>بلاك أندركوت أوميجا (100)</li>
+                    <li>بلاك أندركوت أوميجا اسبراي (100 S)</li>
+                    <li>بلاك اقتصادي (222)</li>
+                    <li>دوكو ألوان / أبيض / أسود (205)</li>
+                    <li>دوكو توشكا (255)</li>
+                    <li>دوكو قنطرة (500)</li>
+                    <li>دوكو أوميجا (3500)</li>
+                    <li>معجون حديد (350)</li>
+                    <li>معجون فيبر رصاصي (360)</li>
+                    <li>معجون حديد مرن (355)</li>
+                    <li>معجون حديد ميكس (365)</li>
+                    <li>معجون حديد ألومنيوم (380)</li>
+                    <li>معجون دوكو قنطرة (400)</li>
+                    <li>معجون دوكو بورسعيد (450)</li>
+                    <li>مصلب فلر قنطرة بطئ (621)</li>
+                    <li>فلر قنطرة بطئ (625 / 635)</li>
+                    <li>فلر سريع (1K)</li>
+                    <li>فيلر بطئ سريع الجفاف (626)</li>
+                    <li>فلر بطئ رصاصي / رصاصي غامق (633)</li>
+                    <li>ثنر أكريليك (600 / 609 / 623)</li>
+                    <li>ثنر بطيء (601)</li>
+                    <li>ثنر بطيء جداً (602)</li>
+                    <li>ثنر تطهير (605)</li>
+                    <li>ثنر ميتاليك (610)</li>
+                    <li>ثنر مرمات (611)</li>
+                    <li>بوية إكسدام (615)</li>
+                    <li>محسن مرونة لبوية الإكسدام (616)</li>
+                    <li>مصلب أكريليك (651)</li>
+                    <li>مصلب أكريليك سريع (652)</li>
+                    <li>مصلب أكريليك MS (656)</li>
+                    <li>بوية أكريليك جاهز ميتاليك (640)</li>
+                    <li>بوية أكريليك جاهز سادة (641)</li>
+                    <li>بوية أكريليك جاهز أبيض مط / أسود مط (640)</li>
+                    <li>برايمر (850)</li>
+                    <li>ايبوكسي زنك برايمر (810)</li>
+                    <li>مصلب ايبوكسي زنك (815)</li>
+                    <li>برايمر ايبوكسي (880)</li>
+                    <li>مصلب ايبوكسي (881)</li>
+                    <li>ثنر ايبوكسي (885)</li>
+                    <li>برايمر ايبوكسي 4:1 (870)</li>
+                    <li>مصلب برايمر ايبوكسي 4:1 (871)</li>
+                    <li>كومباوند (K10)</li>
+                    <li>كومباوند خشن (K20)</li>
+                    <li>كومباوند ناعم (K40)</li>
+                    <li>بولش (K90)</li>
+                    <li>ورنيش زجاجي HS (3001)</li>
+                    <li>ورنيش زجاجي (3100)</li>
+                    <li>ورنيش زجاجي مط (3100 Matt)</li>
+                    <li>ورنيش زجاجي (C888)</li>
+                    <li>ورنيش زجاجي سريع الجفاف (3300)</li>
+                    <li>ورنيش زجاجي HS (6030)</li>
+                    <li>مصلب ورنيش زجاجي (6035)</li>
+                    <li>ورنيش زجاجي HS (6040)</li>
+                    <li>ورنيش زجاجي HS Anti Scratch (6050)</li>
+                    <li>مصلب ورنيش زجاجي (6055)</li>
+                    <li>ورنيش زجاجي (6070)</li>
+                    <li>مصلب ورنيش زجاجي (6075)</li>
+                    <li>بوية أكريليك سادة - ألوان السيستم (660)</li>
+                    <li>ميتاليك EXELARIC (670)</li>
+                    <li>ميتاليك ماجيك Magic (670)</li>
+                    <li>ميتاليك ألوان Color (670)</li>
+                    <li>ميتاليك بيرل Pearl (670)</li>
+                    <li>ميتاليك ألومنيوم Aluminum (670)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم التواصل -->
+        <div class="info-section" id="contact">
+            <h3>زورنا أو اطلب طلبيتك مباشرة</h3>
+            <p>جميع الأصناف والعبوات المتوفرة في المخزن مدرجة أعلاه. إذا كنت تبحث عن صنف معين، عبوة محددة، أو كميات لمشروعك، تواصل معنا فوراً عبر الواتساب وسنقوم بتجهيز طلبيتك في أسرع وقت.</p>
+            <a href="https://wa.me/201000000000?text=السلام%20عليكم،%20عايز%20أطلب%20طلبية%20من%20محل%20بعليص" class="main-cta" target="_blank">تواصل عبر واتساب لطلب طلبيتك</a>
+            <div class="wa-numbers">
+                <a class="wa-number" data-wa="1" href="https://wa.me/201030905776" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.003 3C9.376 3 4 8.373 4 15c0 2.385.697 4.607 1.894 6.48L4 29l7.7-1.857A11.94 11.94 0 0 0 16.003 27C22.63 27 28 21.627 28 15S22.63 3 16.003 3zm0 21.8a9.77 9.77 0 0 1-4.98-1.363l-.357-.213-4.57 1.103 1.12-4.45-.233-.367A9.77 9.77 0 0 1 6.2 15c0-5.413 4.39-9.8 9.803-9.8S25.8 9.587 25.8 15s-4.384 9.8-9.797 9.8zm5.37-7.34c-.294-.147-1.74-.858-2.01-.956-.27-.098-.466-.147-.662.147-.196.294-.76.956-.932 1.152-.172.196-.343.22-.637.074-.294-.147-1.242-.458-2.366-1.46-.875-.78-1.465-1.744-1.637-2.038-.172-.294-.018-.453.13-.6.132-.132.294-.343.44-.515.148-.172.197-.294.295-.49.098-.196.05-.368-.025-.515-.073-.147-.662-1.597-.907-2.186-.239-.574-.482-.496-.662-.505l-.564-.01c-.196 0-.515.074-.785.368-.27.294-1.03 1.007-1.03 2.457 0 1.45 1.055 2.85 1.202 3.046.147.196 2.077 3.17 5.03 4.446.703.303 1.252.484 1.68.62.706.224 1.35.192 1.857.117.566-.085 1.74-.711 1.986-1.398.245-.686.245-1.275.172-1.398-.074-.122-.27-.196-.564-.343z"/></svg><b class="wa-name">محمد عاطف بعليص</b><span class="wa-text"></span></a>
+                <a class="wa-number" data-wa="2" href="https://wa.me/201091348779" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.003 3C9.376 3 4 8.373 4 15c0 2.385.697 4.607 1.894 6.48L4 29l7.7-1.857A11.94 11.94 0 0 0 16.003 27C22.63 27 28 21.627 28 15S22.63 3 16.003 3zm0 21.8a9.77 9.77 0 0 1-4.98-1.363l-.357-.213-4.57 1.103 1.12-4.45-.233-.367A9.77 9.77 0 0 1 6.2 15c0-5.413 4.39-9.8 9.803-9.8S25.8 9.587 25.8 15s-4.384 9.8-9.797 9.8zm5.37-7.34c-.294-.147-1.74-.858-2.01-.956-.27-.098-.466-.147-.662.147-.196.294-.76.956-.932 1.152-.172.196-.343.22-.637.074-.294-.147-1.242-.458-2.366-1.46-.875-.78-1.465-1.744-1.637-2.038-.172-.294-.018-.453.13-.6.132-.132.294-.343.44-.515.148-.172.197-.294.295-.49.098-.196.05-.368-.025-.515-.073-.147-.662-1.597-.907-2.186-.239-.574-.482-.496-.662-.505l-.564-.01c-.196 0-.515.074-.785.368-.27.294-1.03 1.007-1.03 2.457 0 1.45 1.055 2.85 1.202 3.046.147.196 2.077 3.17 5.03 4.446.703.303 1.252.484 1.68.62.706.224 1.35.192 1.857.117.566-.085 1.74-.711 1.986-1.398.245-.686.245-1.275.172-1.398-.074-.122-.27-.196-.564-.343z"/></svg><b class="wa-name">معتز عاطف بعليص</b><span class="wa-text"></span></a>
+            </div>
+            <div class="shop-info">
+                <div class="work-days">🕒 شغالين طول الأسبوع
+                    <small>ما عدا يوم الجمعة</small>
+                </div>
+                <div class="shop-address">📍 كفر الدوار - شارع الجيش، بجوار بن العز وأمام كافيه أسر</div>
+                <a class="map-btn" href="https://maps.app.goo.gl/KGBF9vucjAiyqqL36" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+                    موقعنا على الخريطة
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- تذييل الصفحة -->
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 - محل بعليص للحدايد والبوية</p>
+    </footer>
+
+    <!-- أيقونة واتساب العائمة -->
+    <a class="wa-float" id="waFloat" href="https://wa.me/201030905776" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.003 3C9.376 3 4 8.373 4 15c0 2.385.697 4.607 1.894 6.48L4 29l7.7-1.857A11.94 11.94 0 0 0 16.003 27C22.63 27 28 21.627 28 15S22.63 3 16.003 3zm0 21.8a9.77 9.77 0 0 1-4.98-1.363l-.357-.213-4.57 1.103 1.12-4.45-.233-.367A9.77 9.77 0 0 1 6.2 15c0-5.413 4.39-9.8 9.803-9.8S25.8 9.587 25.8 15s-4.384 9.8-9.797 9.8zm5.37-7.34c-.294-.147-1.74-.858-2.01-.956-.27-.098-.466-.147-.662.147-.196.294-.76.956-.932 1.152-.172.196-.343.22-.637.074-.294-.147-1.242-.458-2.366-1.46-.875-.78-1.465-1.744-1.637-2.038-.172-.294-.018-.453.13-.6.132-.132.294-.343.44-.515.148-.172.197-.294.295-.49.098-.196.05-.368-.025-.515-.073-.147-.662-1.597-.907-2.186-.239-.574-.482-.496-.662-.505l-.564-.01c-.196 0-.515.074-.785.368-.27.294-1.03 1.007-1.03 2.457 0 1.45 1.055 2.85 1.202 3.046.147.196 2.077 3.17 5.03 4.446.703.303 1.252.484 1.68.62.706.224 1.35.192 1.857.117.566-.085 1.74-.711 1.986-1.398.245-.686.245-1.275.172-1.398-.074-.122-.27-.196-.564-.343z"/></svg></a>
+
+    <script>
+        // ===== غيّر الرقمين هنا فقط (بالصيغة الدولية بدون + أو أصفار) =====
+        var WA_NUMBER_1 = "201030905776";
+        var WA_NUMBER_2 = "201091348779";
+        // =================================================================
+
+        function pretty(n) {
+            // 201012345678 -> 0101 234 5678
+            var local = "0" + n.slice(2);
+            return local.replace(/^(\d{4})(\d{3})(\d{4})$/, "$1 $2 $3");
+        }
+        // كل أزرار الواتساب القديمة تتحول للرقم الأول
+        document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+            if (a.dataset.wa === "2") {
+                a.href = "https://wa.me/" + WA_NUMBER_2;
+            } else {
+                a.href = a.href.replace(/wa\.me\/\d+/, "wa.me/" + WA_NUMBER_1);
+            }
+        });
+        document.querySelectorAll('.wa-number').forEach(function (a) {
+            var n = a.dataset.wa === "2" ? WA_NUMBER_2 : WA_NUMBER_1;
+            a.querySelector('.wa-text').textContent = pretty(n);
+        });
+        document.getElementById('waFloat').href =
+            "https://wa.me/" + WA_NUMBER_1 + "?text=" + encodeURIComponent("السلام عليكم، حابب أستفسر عن الأصناف والأسعار");
+    </script>
+    <script>
+        // ===== بحث وفلترة الأصناف =====
+        (function () {
+            var input = document.getElementById('itemSearch');
+            var clearBtn = document.getElementById('clearSearch');
+            var chipsBox = document.getElementById('brandFilters');
+            var status = document.getElementById('searchStatus');
+            var noRes = document.getElementById('noResults');
+            var noResWa = document.getElementById('noResultsWa');
+            var cards = Array.prototype.slice.call(document.querySelectorAll('.names-card'));
+            var activeBrand = 'all';
+            var timer = null;
+
+            function norm(t) {
+                return (t || '').toString().toLowerCase()
+                    .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
+                    .replace(/[أإآٱ]/g, 'ا')
+                    .replace(/ى/g, 'ي')
+                    .replace(/ة/g, 'ه')
+                    .replace(/ؤ/g, 'و').replace(/ئ/g, 'ي')
+                    .replace(/[\u0660-\u0669]/g, function (d) { return String(d.charCodeAt(0) - 1632); })
+                    .replace(/\s+/g, ' ').trim();
+            }
+            function waLink(text) {
+                return 'https://wa.me/' + (typeof WA_NUMBER_1 !== 'undefined' ? WA_NUMBER_1 : '201030905776') +
+                    '?text=' + encodeURIComponent(text);
+            }
+
+            // تجهيز الكروت: اسم الشركة + تحويل كل صنف لرابط واتساب
+            var data = cards.map(function (card, idx) {
+                var h3 = card.querySelector('h3');
+                var count = card.querySelector('.names-count');
+                var brand = h3.childNodes[0].textContent.replace('أصناف', '').trim();
+                var items = Array.prototype.slice.call(card.querySelectorAll('.names-list li')).map(function (li) {
+                    var name = li.textContent.trim();
+                    var a = document.createElement('a');
+                    a.href = waLink('السلام عليكم، عايز أسأل عن صنف: ' + name + ' (' + brand + ')');
+                    a.target = '_blank';
+                    a.rel = 'noopener';
+                    a.title = 'اسأل عن هذا الصنف على واتساب';
+                    a.textContent = name;
+                    li.textContent = '';
+                    li.appendChild(a);
+                    return { li: li, key: norm(name + ' ' + brand) };
+                });
+                return { card: card, brand: brand, count: count, items: items, total: items.length };
+            });
+
+            // أزرار فلترة الشركات
+            function addChip(label, value, n) {
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'brand-chip' + (value === 'all' ? ' active' : '');
+                b.dataset.brand = value;
+                b.innerHTML = label + (n ? ' <small>' + n + '</small>' : '');
+                chipsBox.appendChild(b);
+            }
+            var totalAll = data.reduce(function (s, d) { return s + d.total; }, 0);
+            addChip('الكل', 'all', totalAll);
+            data.forEach(function (d, i) { addChip(d.brand, String(i), d.total); });
+
+            function apply() {
+                var q = norm(input.value);
+                var terms = q ? q.split(' ') : [];
+                var shown = 0, cardsShown = 0;
+                data.forEach(function (d, i) {
+                    var brandOk = activeBrand === 'all' || activeBrand === String(i);
+                    var m = 0;
+                    d.items.forEach(function (it) {
+                        var ok = brandOk && terms.every(function (t) { return it.key.indexOf(t) !== -1; });
+                        it.li.classList.toggle('hidden', !ok);
+                        if (ok) m++;
+                    });
+                    d.card.classList.toggle('hidden', m === 0);
+                    d.count.textContent = (m === d.total ? d.total : m + ' من ' + d.total) + ' صنف';
+                    if (m) cardsShown++;
+                    shown += m;
+                });
+                clearBtn.style.display = input.value ? 'block' : 'none';
+                noRes.style.display = shown === 0 ? 'block' : 'none';
+                if (shown === 0) {
+                    noResWa.href = waLink('السلام عليكم، عايز أسأل عن صنف: ' + (input.value.trim() || 'غير مدرج بالقائمة'));
+                }
+                status.textContent = q || activeBrand !== 'all'
+                    ? 'عدد النتائج: ' + shown + ' صنف في ' + cardsShown + (cardsShown > 2 ? ' شركات' : ' شركة')
+                    : 'اضغط على أي صنف لتسأل عنه مباشرة على واتساب';
+            }
+
+            input.addEventListener('input', function () {
+                clearTimeout(timer);
+                timer = setTimeout(apply, 120);
+            });
+            clearBtn.addEventListener('click', function () {
+                input.value = '';
+                input.focus();
+                apply();
+            });
+            chipsBox.addEventListener('click', function (e) {
+                var btn = e.target.closest('.brand-chip');
+                if (!btn) return;
+                activeBrand = btn.dataset.brand;
+                Array.prototype.forEach.call(chipsBox.children, function (c) {
+                    c.classList.toggle('active', c === btn);
+                });
+                apply();
+            });
+            apply();
+        })();
+    </script>
+</body>
+</html>
